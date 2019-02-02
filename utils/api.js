@@ -5,7 +5,6 @@ const DECKS_STORAGE_KEY = 'MobileFlashcards:decks'
 
 
 export function getDecks () {
-  // AsyncStorage.multiRemove([DECKS_STORAGE_KEY])
   return AsyncStorage.getItem(DECKS_STORAGE_KEY)
     .then(formatResults)
 }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, Text, Platform, TextInput } from 'react-native'
+import { View, TextInput } from 'react-native'
 import { saveCard } from '../utils/api'
 import { connect } from 'react-redux'
 import { addCard } from '../actions'
-import { orange, white, globalStyles } from '../utils/colors'
+import { globalStyles } from '../utils/style'
 import { NavigationActions } from 'react-navigation'
 import TextButton from './TextButton'
 
@@ -24,33 +24,24 @@ class AddCard extends Component {
     const { deckId } = this.props
 
     this.props.dispatch(addCard({deckId, card}))
-
     this.setState(() => ({ question: '', answer: '' }))
-
-    this.toHome()
-
     saveCard({ card, deckId })
-
-    // clearLocalNotification()
-    //   .then(setLocalNotification)
-  }
-
-  toHome = () => {
     this.props.navigation.dispatch(NavigationActions.back({key: 'AddCard'}))
   }
 
   render() {
+    const { question, answer } = this.state
     return (
       <View style={globalStyles.container}>
         <TextInput
           style={globalStyles.textInput}
           onChangeText={(question) => this.setState({question})}
-          value={this.state.question} 
+          value={question} 
           placeholder="Question"/>
         <TextInput
           style={globalStyles.textInput}
           onChangeText={(answer) => this.setState({answer})}
-          value={this.state.answer} 
+          value={answer} 
           placeholder="Answer" />
         <TextButton 
           style={globalStyles.submitBtn}
@@ -58,7 +49,7 @@ class AddCard extends Component {
           Submit
         </TextButton>
       </View>
-    );
+    )
   }
 }
 

@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Platform, TextInput, TouchableOpacity } from 'react-native'
+import { View, TextInput } from 'react-native'
 import { saveDeck } from '../utils/api'
 import { connect } from 'react-redux'
 import { addDeck } from '../actions'
-import { purple, white, globalStyles } from '../utils/colors'
-import { NavigationActions } from 'react-navigation'
+import { globalStyles } from '../utils/style'
 import TextButton from './TextButton'
 
 class AddDeck extends Component {
@@ -21,16 +20,12 @@ class AddDeck extends Component {
     this.props.dispatch(addDeck({
       [key]: deck
     }))
-
     this.setState(() => ({ title: '' }))
-
     this.props.navigation.navigate(
       'DeckDetail',
       { deckId: key }
     )
-
     saveDeck({ deck, key })
-
   }
 
   render() {

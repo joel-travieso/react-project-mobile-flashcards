@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Platform, TouchableOpacity, FlatList } from 'react-native'
+import { View, Text, StyleSheet, FlatList } from 'react-native'
 import { connect } from 'react-redux'
 import { receiveDecks } from '../actions'
 import { getDecks } from '../utils/api'
-import { white, globalStyles } from '../utils/colors'
+import { globalStyles } from '../utils/style'
 import DeckItem from './DeckItem'
-import { AppLoading} from 'expo'
+import { AppLoading } from 'expo'
 
 
 class DeckList extends Component {
@@ -40,8 +40,6 @@ class DeckList extends Component {
             )
           } />
         : <Text style={styles.noDataText}>No decks available</Text>
-
-
       }
       </View>
     )

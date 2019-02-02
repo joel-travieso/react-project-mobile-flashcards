@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, TouchableOpacity, StyleSheet, Platform } from 'react-native'
-import { orange, white, green, red } from '../utils/colors'
+import { orange, white } from '../utils/style'
 
 export default function TextButton ({ children, onPress, style = {}, textStyle = {} }) {
   return (
@@ -8,7 +8,7 @@ export default function TextButton ({ children, onPress, style = {}, textStyle =
 	  style={[Platform.OS === 'ios' ? styles.iosSubmitBtn : styles.AndroidSubmitBtn, style]}
 	   onPress={onPress}>
       <Text 
-		style={[styles.btnText, textStyle]}>
+    		style={[styles.btnText, textStyle]}>
       	{children}
       </Text>
     </TouchableOpacity>

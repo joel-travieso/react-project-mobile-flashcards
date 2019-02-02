@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
-import { white, orange, green, red, globalStyles } from '../utils/colors'
+import { white, orange, green, red, globalStyles } from '../utils/style'
 import { clearLocalNotification, setLocalNotification } from '../utils/helpers'
 import TextButton from './TextButton'
 import { NavigationActions } from 'react-navigation'
@@ -54,10 +54,9 @@ class Quiz extends Component {
     }))
   }
 
-  toHome = () => {
+  toDeckDetail = () => {
     this.props.navigation.dispatch(NavigationActions.back())
   }
-
 
   render() {
     const { deck, count } = this.props
@@ -91,7 +90,7 @@ class Quiz extends Component {
                 <TextButton style={{margin: 20}} onPress={this.handleReset}>
                   Reset
                 </TextButton>
-                <TextButton style={{margin: 20}} onPress={this.toHome}>
+                <TextButton style={{margin: 20}} onPress={this.toDeckDetail}>
                   Back to Deck
                 </TextButton>
               </View>

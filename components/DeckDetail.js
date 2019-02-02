@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
-import { white } from '../utils/helpers'
+import { white, globalStyles } from '../utils/style'
 import TextButton from './TextButton'
 
 class DeckDetail extends Component {
@@ -16,7 +16,7 @@ class DeckDetail extends Component {
     const { deck, count } = this.props
 
     return (
-      <View style={styles.container}>
+      <View style={globalStyles.container}>
         <Text>{deck.title}</Text>
         <Text>{count} cards</Text>
         <TextButton style={{margin: 20}} onPress={() => this.props.navigation.navigate(
@@ -38,14 +38,6 @@ class DeckDetail extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: white,
-    padding: 15,
-  },
-})
 
 function mapStateToProps (decks, { navigation }) {
   const { deckId } = navigation.state.params

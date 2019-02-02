@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Platform, TouchableOpacity, Animated } from 'react-native'
 import { connect } from 'react-redux'
-import { white, orange, gray } from '../utils/helpers'
+import { white, orange, gray, lightGray } from '../utils/style'
 
 class DeckItem extends Component {
   state = {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     padding: 50,
     borderBottomWidth: 1,
-    borderBottomColor: '#f9f9f9',
+    borderBottomColor: lightGray,
   },
   name: {
     textAlign: 'center',
@@ -55,23 +55,6 @@ const styles = StyleSheet.create({
   count: {
     color: gray,
     textAlign: 'center',
-  },
-  item: {
-    borderColor: gray, 
-    backgroundColor: white,
-    borderRadius: Platform.OS === 'ios' ? 16 : 2,
-    padding: 20,
-    marginLeft: 10,
-    marginRight: 10,
-    marginTop: 17,
-    justifyContent: 'center',
-    shadowRadius: 3,
-    shadowOpacity: 0.8,
-    shadowColor: 'rgba(0, 0, 0, 0.24)',
-    shadowOffset: {
-      width: 0,
-      height: 3
-    },
   },
 })
 
