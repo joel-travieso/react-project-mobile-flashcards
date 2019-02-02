@@ -27,6 +27,7 @@ class Quiz extends Component {
       correct: isCorrect ? this.state.correct + 1 : this.state.correct,
       incorrect: isCorrect ? this.state.incorrect : this.state.incorrect + 1,
       index: this.state.index + 1,
+      reveal:false,
     }
     newState.percentage = Math.round((newState.correct * 100) / (newState.index))
     this.setState(() => (newState))
