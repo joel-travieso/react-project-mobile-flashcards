@@ -31,8 +31,6 @@ class AddDeck extends Component {
 
     saveDeck({ deck, key })
 
-    // clearLocalNotification()
-    //   .then(setLocalNotification)
   }
 
   render() {
